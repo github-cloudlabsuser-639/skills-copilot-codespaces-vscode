@@ -4,14 +4,13 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
-  location = "East US"
+  location = "West Europe"
 }
 
 resource "azurerm_storage_account" "example" {
-  name                     = "examplestoraccount"
+  name                     = "examplestorageacc"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"
-  account_replication_type = "LRS"
-  access_tier              = "Hot"
+  account_replication_type = "GRS"
 }
